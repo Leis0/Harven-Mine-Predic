@@ -1,0 +1,466 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+     margin:0;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:white;
+
+    background-image:url("bg.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+}
+
+
+
+@keyframes bgmove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(40px);
+
+    }
+
+}
+
+/*==========================
+HEADER
+===========================*/
+
+header{
+
+    width:100%;
+    padding:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo i{
+
+    color:#ffd74a;
+
+    font-size:38px;
+
+    text-shadow:0 0 15px gold;
+
+}
+
+.logo h1{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+/*==========================
+CONTAINER
+===========================*/
+
+.container{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+/*==========================
+PANEL
+===========================*/
+
+.panel{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.stats{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:20px;
+
+    width:140px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 0 20px rgba(0,183,255,.2);
+
+}
+
+.card h3{
+
+    font-size:15px;
+
+    color:#87d4ff;
+
+}
+
+.card span{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+/*==========================
+BUTTON
+===========================*/
+
+#generate{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:18px 35px;
+
+    border-radius:18px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    background:linear-gradient(135deg,#0099ff,#0056ff);
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 0 20px #008cff,
+
+    0 0 50px rgba(0,140,255,.4);
+
+}
+
+#generate:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 0 30px #00b3ff,
+
+    0 0 70px #00a2ff;
+
+}
+
+/*==========================
+BOARD
+===========================*/
+
+.board{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,90px);
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+/*==========================
+CELL
+===========================*/
+
+.cell{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 0 15px rgba(0,132,255,.15);
+
+}
+
+.cell:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 0 25px #00aaff;
+
+}
+
+/*==========================
+STAR
+===========================*/
+
+.star{
+
+    font-size:42px;
+
+    color:#ffd54f;
+
+    animation:pop .5s ease;
+
+    text-shadow:
+
+    0 0 10px gold,
+
+    0 0 20px gold,
+
+    0 0 35px orange;
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(.1) rotate(-180deg);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*==========================
+HISTORY
+===========================*/
+
+.history{
+
+    margin-top:45px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.history h2{
+
+    margin-bottom:15px;
+
+    color:#67c8ff;
+
+}
+
+.history ul{
+
+    list-style:none;
+
+}
+
+.history li{
+
+    margin-bottom:12px;
+
+    color:#ddd;
+
+}
+
+/*==========================
+LOADER
+===========================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(5,10,20,.95);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:1000;
+
+}
+
+.spinner{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    border:7px solid rgba(255,255,255,.2);
+
+    border-top:7px solid #00aaff;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+#loader p{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+}
+
+/*==========================
+RESPONSIVE
+===========================*/
+
+@media(max-width:700px){
+
+.board{
+
+    grid-template-columns:repeat(5,90px);
+
+    gap:15px;
+
+    justify-content:center;
+
+    overflow-x:auto;
+
+    padding:10px;
+
+}
+
+
+.cell:hover{
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+        inset 0 5px 0 rgba(255,255,255,.35),
+        inset 0 -6px 0 rgba(0,0,0,.18),
+        0 0 25px #00bfff;
+}
+.star{
+
+font-size:28px;
+
+}
+
+.card{
+
+width:120px;
+
+margin-bottom:15px;
+
+}
+
+#generate{
+
+width:100%;
+
+margin-top:20px;
+
+}
+
+}
